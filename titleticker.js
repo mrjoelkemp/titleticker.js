@@ -34,7 +34,7 @@
       };
 
 
-  // Get the page title
+  // Tick the page title
   window.titleticker.tick = function () {
     var title = document.title,
         chars = strToList(title),
