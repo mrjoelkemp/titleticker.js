@@ -36,7 +36,9 @@
 
   // Tick the page title
   window.titleticker.tick = function () {
-    var title = document.title,
+    // Add a space so ending char isn't next to
+    // the leading character on wrap
+    var title = document.title + " ",
         chars = strToList(title),
         ticker;
 
