@@ -1,4 +1,6 @@
-titleticker.js
+Titleticker.js
 ==============
 
-For ticking titles
+Long tab titles always get truncated. No more.
+
+**Open `index.html` to run.**
