@@ -1,6 +1,8 @@
 ;(function (window, document) {
   "use strict";
 
+  window.titleticker = window.titleticker || {};
+
   // Helpers
   var
       // Returns a list consisting of the characters in the passed string
@@ -8,8 +10,8 @@
         var chars = [],
             i, l;
 
-        for (i = 0, l = title.length; i < l; i++) {
-          chars.push(title[i]);
+        for (i = 0, l = str.length; i < l; i++) {
+          chars.push(str[i]);
         }
         return chars;
       },
@@ -31,17 +33,18 @@
         chars.push(front);
       };
 
-  // TODO: Should be on dom load to avoid order dependency with title tag
 
   // Get the page title
-  var title = document.title,
-      chars = strToList(title),
-      ticker;
+  window.titleticker.tick = function () {
+    var title = document.title,
+        chars = strToList(title),
+        ticker;
 
-  setInterval(function () {
-    cycleList(chars);
-    ticker = listToStr(chars);
-    document.title = ticker;
-  }, 500);
+    setInterval(function () {
+      cycleList(chars);
+      ticker = listToStr(chars);
+      document.title = ticker;
+    }, 500);
+  };
 
 })(window, document);
