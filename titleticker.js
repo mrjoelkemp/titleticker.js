@@ -31,22 +31,36 @@
 
         // Add it to the back of the list
         chars.push(front);
+      },
+
+      // Resets the title to the original
+      reset = function () {
+        document.title = title;
       };
 
+  // Common
 
-  // Tick the page title
+  // Add a space so ending char isn't next to
+  // the leading character on wrap
+  var title = document.title + " ",
+      chars = strToList(title),
+      ticker,
+      tickIntervalId;
+
+  // Public Methods
+
+  // Ticks the page title
   window.titleticker.tick = function () {
-    // Add a space so ending char isn't next to
-    // the leading character on wrap
-    var title = document.title + " ",
-        chars = strToList(title),
-        ticker;
-
-    setInterval(function () {
+    tickIntervalId = setInterval(function () {
       cycleList(chars);
       ticker = listToStr(chars);
       document.title = ticker;
     }, 500);
   };
 
+  // Terminates the ticking and restores it to the original
+  window.titleticker.stop = function () {
+    clearInterval(tickIntervalId);
+    reset();
+  };
 })(window, document);
