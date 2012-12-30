@@ -5,17 +5,6 @@
 
   // Helpers
   var
-      // Returns a list consisting of the characters in the passed string
-      strToList = function (str) {
-        var chars = [],
-            i, l;
-
-        for (i = 0, l = str.length; i < l; i++) {
-          chars.push(str[i]);
-        }
-        return chars;
-      },
-
       // Construct a string from the given list
       listToStr = function (chars) {
         return chars.join('');
@@ -43,7 +32,7 @@
   // Add a space so ending char isn't next to
   // the leading character on wrap
   var title = document.title + " ",
-      chars = strToList(title),
+      chars = title.split(""),
       ticker,
       tickIntervalId;
 
