@@ -51,6 +51,8 @@
 
   // Ticks the page title
   window.titleticker.tick = function () {
+    if (tickIntervalId) return;
+
     tickIntervalId = setInterval(function () {
       cycleList(chars);
       ticker = listToStr(chars);
