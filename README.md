@@ -13,4 +13,8 @@ Tick on dom load:
 
 `window.titleticker.tick();`
 
+Stop whenever you want:
+
+`window.titleticker.stop();`
+
 Own that long title.
